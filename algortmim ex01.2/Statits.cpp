@@ -29,7 +29,7 @@ int MinMax(int* i_Arr, int i_size)
 	return countComp;
 }
 
-int* MixArr(int* Arr, int i_size)
+int* ShafellArr(int* Arr, int i_size)
 {
 
 	for (int i = 0; i < i_size; i++)
@@ -39,7 +39,7 @@ int* MixArr(int* Arr, int i_size)
 	return Arr;
 }
 
-int staticsOfCompRand(int i_numOfArry, int i_sizeOfArr)
+float staticsOfCompRand(int i_numOfArry, int i_sizeOfArr)
 {
 
 	srand(time(0));
@@ -56,9 +56,11 @@ int staticsOfCompRand(int i_numOfArry, int i_sizeOfArr)
 		sumOfComp += MinMax(arr, i_sizeOfArr);
 
 	}
+
+	delete[] arr;
 	return sumOfComp / i_numOfArry;
 }
-int statisOfCmpShafelArry(int i_timeToShafell, int i_sizeOfArry)
+float statisOfCmpShafelArry(int i_timeToShafell, int i_sizeOfArry)
 {
 	srand(time(0));
 	int sumOfComp = 0;
@@ -71,25 +73,22 @@ int statisOfCmpShafelArry(int i_timeToShafell, int i_sizeOfArry)
 	for (int i = 0; i < i_timeToShafell; i++)
 	{
 
-		arr = MixArr(arr, i_sizeOfArry);
+		arr = ShafellArr(arr, i_sizeOfArry);
 		sumOfComp += MinMax(arr, i_sizeOfArry);
 
 	}
 
+	delete[] arr;
 	return sumOfComp / i_timeToShafell;
 
 }
+
 int main()
 {
 	int numOfArrys = 100000, sizeOfArry = 1000;
 
-	int avgOfCompDiffrentArrys = staticsOfCompRand(numOfArrys, sizeOfArry);
-	int avgOfCompShaffelArry = statisOfCmpShafelArry(numOfArrys, sizeOfArry);
-
-	
-
-	
-	
+	float avgOfCompDiffrentArrys = staticsOfCompRand(numOfArrys, sizeOfArry);
+	float avgOfCompShaffelArry = statisOfCmpShafelArry(numOfArrys, sizeOfArry);
 
 	cout <<"the avg of compers in diffrent arreys is :" << avgOfCompDiffrentArrys<< endl;
 	cout << "the avg of comper in shafel arry is : " << avgOfCompShaffelArry << endl;
