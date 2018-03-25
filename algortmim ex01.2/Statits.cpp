@@ -11,17 +11,17 @@ int MinMax(int* i_Arr, int i_size)
 	for (int i = 0; i < i_size; i++)
 	{
 		countComp++;
-		if (i_Arr[i] > max)
+		if (i_Arr[i] < min)
 		{
-			max = i_Arr[i];
+			min = i_Arr[i];
 			
 		}
 		else
 		{
 			countComp++;
-			if (i_Arr[i] < min)
+			if (i_Arr[i] > max)
 			{
-				min = i_Arr[i];
+				max = i_Arr[i];
 				
 			}
 		}
