@@ -2,13 +2,13 @@
 #include <time.h>
 using namespace std;
 
-int MinMax(int* i_Arr, int i_size)
+int MinMax(int* i_Arr, int i_Size)
 {
 	int min, max;
 	int countComp = 0;
 	min = max = i_Arr[0];
     
-	for (int i = 0; i < i_size; i++)
+	for (int i = 0; i < i_Size; i++)
 	{
 		countComp++;
 		if (i_Arr[i] < min)
@@ -22,64 +22,63 @@ int MinMax(int* i_Arr, int i_size)
 			if (i_Arr[i] > max)
 			{
 				max = i_Arr[i];
-				
 			}
 		}
 	}
 	return countComp;
 }
 
-int* ShafellArr(int* Arr, int i_size)
+int* ShafellArr(int* Arr, int i_Size)
 {
 
-	for (int i = 0; i < i_size; i++)
+	for (int i = 0; i < i_Size; i++)
 	{
 		swap(Arr[i], Arr[rand() % 1000]);
 	}
 	return Arr;
 }
 
-float staticsOfCompRand(int i_numOfArry, int i_sizeOfArr)
+float staticsOfCompRand(int i_NumOfArry, int i_SizeOfArr)
 {
 
 	srand(time(0));
 	int sumOfComp = 0;
-	int* arr = new int[i_sizeOfArr];
+	int* arr = new int[i_SizeOfArr];
 
-	for (int i = 0; i < i_numOfArry; i++)
+	for (int i = 0; i < i_NumOfArry; i++)
 	{
-		for (int j = 0; j < i_sizeOfArr; j++)
+		for (int j = 0; j < i_SizeOfArr; j++)
 		{
-			arr[j] = (rand() % i_sizeOfArr) + 1;
+			arr[j] = (rand() % i_SizeOfArr) + 1;
 		}
 
-		sumOfComp += MinMax(arr, i_sizeOfArr);
+		sumOfComp += MinMax(arr, i_SizeOfArr);
 
 	}
 
 	delete[] arr;
-	return sumOfComp / i_numOfArry;
+	return sumOfComp / i_NumOfArry;
 }
-float statisOfCmpShafelArry(int i_timeToShafell, int i_sizeOfArry)
+float statisOfCmpShafelArry(int i_TimeToShafell, int i_SizeOfArry)
 {
 	srand(time(0));
 	int sumOfComp = 0;
-	int* arr = new int[i_sizeOfArry];
-	for (int j = 0; j < i_sizeOfArry; j++)
+	int* arr = new int[i_SizeOfArry];
+	for (int j = 0; j < i_SizeOfArry; j++)
 	{
-		arr[j] = (rand() % i_sizeOfArry) + 1;
+		arr[j] = (rand() % i_SizeOfArry) + 1;
 	}
 
-	for (int i = 0; i < i_timeToShafell; i++)
+	for (int i = 0; i < i_TimeToShafell; i++)
 	{
 
-		arr = ShafellArr(arr, i_sizeOfArry);
-		sumOfComp += MinMax(arr, i_sizeOfArry);
+		arr = ShafellArr(arr, i_SizeOfArry);
+		sumOfComp += MinMax(arr, i_SizeOfArry);
 
 	}
 
 	delete[] arr;
-	return sumOfComp / i_timeToShafell;
+	return sumOfComp / i_TimeToShafell;
 
 }
 
